@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ block('title') }}</h1>
+    <main>
+        {% block content '' %}
+    </main>
+{% endblock %}
+
+{% block sheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/bundles/bernydemo/css/main.css" />
+{% endblock %}
