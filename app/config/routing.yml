@@ -1,0 +1,5 @@
+berny_demo:
+    resource: "@BernyDemoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
