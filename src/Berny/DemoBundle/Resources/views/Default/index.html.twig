@@ -3,6 +3,7 @@
 {% block title 'User list' %}
 
 {% block content %}
+    {{ form(filter) }}
     <table class="table user-list">
         <thead>
             <tr>
@@ -24,4 +25,43 @@
             <tr></tr>
         </tbody>
     </table>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="//code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script>
+        jQuery(function($) {
+            function processCriteria(criteria) {
+                criteria.append('<a href="#" class="remove_criteria">Remove filter</a>');
+            }
+
+            function processFilter(filter) {
+                var criteria = filter.find('.criteria');
+                filter
+                    .data('criteriaCount', criteria.length)
+                    .prepend('<a href="#" class="add_criteria">Add filter</a>')
+                        .on('click', '.add_criteria', eventAdd)
+                        .on('click', '.remove_criteria', eventRemove)
+                processCriteria(criteria.parent());
+            }
+
+            function eventAdd(e) {
+                var filters = $(e.delegateTarget),
+                    counter = filters.data('criteriaCount') + 1,
+                    criteria = $(filters.data('prototype').replace(/__name__/g, counter));
+
+                e.preventDefault();
+                filters.data('criteriaCount', counter);
+                processCriteria(criteria.appendTo(filters));
+            }
+
+            function eventRemove(e) {
+                e.preventDefault();
+                $(e.currentTarget).parent().remove();
+            }
+
+            processFilter($('form .filter'));
+        });
+    </script>
 {% endblock %}
