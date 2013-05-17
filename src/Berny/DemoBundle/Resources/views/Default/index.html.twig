@@ -3,6 +3,7 @@
 {% block title 'User list' %}
 
 {% block content %}
+    {{ dump(data) }}
     {{ form(filter) }}
     <table class="table user-list">
         <thead>

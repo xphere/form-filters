@@ -34,12 +34,12 @@ class DefaultController extends Controller
         $queryBuilder = $this->getUserRepository()->createQueryBuilder('u');
         if ($filter->isValid()) {
             $data = $filter->getData();
-            var_dump($data);
         }
 
         return array(
             'user_list' => $queryBuilder->getQuery()->execute(),
             'filter' => $filter->createView(),
+            'data' => isset($data) ? $data : null,
         );
     }
 
