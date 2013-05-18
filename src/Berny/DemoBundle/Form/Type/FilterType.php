@@ -33,6 +33,7 @@ class FilterType extends AbstractType
             'allow_add' => true,
             'allow_delete' => true,
             'options' => array(
+                'label' => false,
                 'attr' => array(
                     'class' => 'criteria',
                 ),
