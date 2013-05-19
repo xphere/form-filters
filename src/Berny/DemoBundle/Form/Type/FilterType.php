@@ -31,13 +31,13 @@ class FilterType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'type' => new CriteriaType(),
+            'type' => new CriterionType(),
             'prototype' => true,
             'allow_add' => true,
             'allow_delete' => true,
             'options' => array(
                 'attr' => array(
-                    'class' => 'criteria',
+                    'class' => 'criterion',
                 ),
                 'required' => false,
             ),

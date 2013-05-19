@@ -34,27 +34,27 @@
     <script>
         jQuery(function($) {
             function processCriteria(criteria) {
-                criteria.append('<a href="#" class="remove_criteria">Remove filter</a>');
+                criteria.append('<a href="#" class="remove_criterion">Remove filter</a>');
             }
 
             function processFilter(filter) {
-                var criteria = filter.find('.criteria');
+                var criteria = filter.find('.criterion');
                 filter
                     .data('criteriaCount', criteria.length)
-                    .prepend('<a href="#" class="add_criteria">Add filter</a>')
-                        .on('click', '.add_criteria', eventAdd)
-                        .on('click', '.remove_criteria', eventRemove)
+                    .prepend('<a href="#" class="add_criterion">Add filter</a>')
+                        .on('click', '.add_criterion', eventAdd)
+                        .on('click', '.remove_criterion', eventRemove)
                 processCriteria(criteria.parent());
             }
 
             function eventAdd(e) {
-                var filters = $(e.delegateTarget),
-                    counter = filters.data('criteriaCount') + 1,
-                    criteria = $(filters.data('prototype').replace(/__name__/g, counter));
+                var filter = $(e.delegateTarget),
+                    counter = filter.data('criteriaCount') + 1,
+                    criterion = $(filter.data('prototype').replace(/__name__/g, counter));
 
                 e.preventDefault();
-                filters.data('criteriaCount', counter);
-                processCriteria(criteria.appendTo(filters));
+                filter.data('criteriaCount', counter);
+                processCriteria(criterion.appendTo(filter));
             }
 
             function eventRemove(e) {
