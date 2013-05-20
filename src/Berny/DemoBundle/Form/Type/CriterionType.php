@@ -14,11 +14,11 @@ namespace Berny\DemoBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class CriteriaType extends AbstractType
+class CriterionType extends AbstractType
 {
     public function getName()
     {
-        return 'filter_criteria';
+        return 'filter_criterion';
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)

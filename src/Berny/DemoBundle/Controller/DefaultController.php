@@ -2,7 +2,6 @@
 
 namespace Berny\DemoBundle\Controller;
 
-use Berny\DemoBundle\Entity\User;
 use Berny\DemoBundle\Form\Type\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
