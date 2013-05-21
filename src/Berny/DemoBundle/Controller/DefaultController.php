@@ -26,13 +26,12 @@ class DefaultController extends Controller
 
         $queryBuilder = $this->getUserRepository()->createQueryBuilder('u');
         if ($filter->isValid()) {
-            $data = $filter->getData();
+            // TODO: Process form and add criteria to query
         }
 
         return array(
             'user_list' => $queryBuilder->getQuery()->execute(),
             'filter' => $filter->createView(),
-            'data' => isset($data) ? $data : null,
         );
     }
 

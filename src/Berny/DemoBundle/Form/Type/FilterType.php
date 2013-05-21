@@ -31,7 +31,7 @@ class FilterType extends AbstractType
         $resolver->setDefaults(array(
             'type' => new CriterionType(),
             'allow_add' => true,
-            'allow_delete' => true,
+            'label' => false,
             'options' => array(
                 'label' => false,
                 'attr' => array(

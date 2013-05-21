@@ -25,9 +25,9 @@ class CriterionType extends AbstractType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('field', 'choice')
-            ->add('type',  'choice')
-            ->add('value', 'text')
+            ->add('field', 'choice', array('label' => false, ))
+            ->add('type',  'choice', array('label' => false, ))
+            ->add('value', 'text', array('label' => false, ))
         ;
     }
 }
