@@ -53,7 +53,7 @@
             function addCriterion(e) {
                 var filter = $(e.delegateTarget),
                     counter = filter.data('criteriaCount'),
-                    criterion = $(filter.data('prototype').replace(/__name__/g, counter));
+                    criterion = $(filter.data('prototype').split(filter.data('prototype-name')).join(counter));
 
                 e.preventDefault();
                 filter.data('criteriaCount', counter + 1);

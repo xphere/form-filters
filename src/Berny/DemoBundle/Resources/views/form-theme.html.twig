@@ -14,6 +14,17 @@
 {% endspaceless %}
 {% endblock form_widget_compound %}
 
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype_name is defined %}
+        {% set attr = attr|merge({
+            'data-prototype-name': prototype_name
+        }) %}
+    {% endif %}
+    {{ parent() }}
+{% endspaceless %}
+{% endblock %}
+
 {% block choice_widget_expanded %}
 {% spaceless %}
     <ul {{ block('widget_container_attributes') }}>

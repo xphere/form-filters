@@ -14,6 +14,8 @@ namespace Berny\DemoBundle\Form\Type;
 use Berny\DemoBundle\Form\Listener\ResetIndexesListener;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FilterType extends AbstractType
@@ -31,6 +33,11 @@ class FilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->addEventSubscriber(new ResetIndexesListener());
+    }
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->vars['prototype_name'] = $options['prototype_name'];
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
