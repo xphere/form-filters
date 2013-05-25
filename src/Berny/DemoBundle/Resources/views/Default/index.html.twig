@@ -43,7 +43,7 @@
                 var criteria = filter.find('.criterion');
                 filter
                     .data('criteriaCount', criteria.length)
-                    .prepend('<a href="#" class="add_criterion">Add filter</a>')
+                    .append('<a href="#" class="add_criterion">Add filter</a>')
                     .on('click', '.add_criterion', addCriterion)
                     .on('click', '.remove_criterion', removeCriterion)
                 ;
@@ -57,7 +57,7 @@
 
                 e.preventDefault();
                 filter.data('criteriaCount', counter);
-                processCriteria(criterion.appendTo(filter));
+                processCriteria(criterion.insertBefore(e.currentTarget));
             }
 
             function removeCriterion(e) {
