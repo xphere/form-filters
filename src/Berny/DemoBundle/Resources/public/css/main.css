@@ -440,6 +440,36 @@ table {
     text-align: right;
 }
 
+form ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.filter {
+
+}
+.criterion, .criterion li {
+    display: inline-block;
+}
+.criterion li {
+    margin-left: 1em;
+}
+.criterion_field {
+
+}
+.criterion_type {
+
+}
+.criterion_value {
+
+}
+.add_criterion {
+
+}
+.remove_criterion {
+
+}
 .user-list th {
     width: 25%;
 }
