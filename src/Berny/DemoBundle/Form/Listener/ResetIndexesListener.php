@@ -29,6 +29,9 @@ class ResetIndexesListener implements EventSubscriberInterface
 
     public function onPreSubmit(FormEvent $event)
     {
-      $event->setData(array_values($event->getData()));
+        $data = $event->getData();
+        if (is_array($data)) {
+            $event->setData(array_values($data));
+        }
     }
 }
