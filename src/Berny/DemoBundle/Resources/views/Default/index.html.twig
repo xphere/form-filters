@@ -44,12 +44,13 @@
                 filter
                     .data('criteriaCount', criteria.length)
                     .prepend('<a href="#" class="add_criterion">Add filter</a>')
-                        .on('click', '.add_criterion', eventAdd)
-                        .on('click', '.remove_criterion', eventRemove)
+                    .on('click', '.add_criterion', addCriterion)
+                    .on('click', '.remove_criterion', removeCriterion)
+                ;
                 processCriteria(criteria.parent());
             }
 
-            function eventAdd(e) {
+            function addCriterion(e) {
                 var filter = $(e.delegateTarget),
                     counter = filter.data('criteriaCount') + 1,
                     criterion = $(filter.data('prototype').replace(/__name__/g, counter));
@@ -59,7 +60,7 @@
                 processCriteria(criterion.appendTo(filter));
             }
 
-            function eventRemove(e) {
+            function removeCriterion(e) {
                 e.preventDefault();
                 $(e.currentTarget).parent().remove();
             }
