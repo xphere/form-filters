@@ -52,11 +52,11 @@
 
             function addCriterion(e) {
                 var filter = $(e.delegateTarget),
-                    counter = filter.data('criteriaCount') + 1,
+                    counter = filter.data('criteriaCount'),
                     criterion = $(filter.data('prototype').replace(/__name__/g, counter));
 
                 e.preventDefault();
-                filter.data('criteriaCount', counter);
+                filter.data('criteriaCount', counter + 1);
                 processCriteria(criterion.insertBefore(e.currentTarget));
             }
 
