@@ -47,7 +47,7 @@
                     .on('click', '.add_criterion', addCriterion)
                     .on('click', '.remove_criterion', removeCriterion)
                 ;
-                processCriteria(criteria.parent());
+                processCriteria(criteria);
             }
 
             function addCriterion(e) {
@@ -57,12 +57,12 @@
 
                 e.preventDefault();
                 filter.data('criteriaCount', counter + 1);
-                processCriteria(criterion.insertBefore(e.currentTarget));
+                processCriteria(criterion.insertBefore(e.currentTarget).find('.criterion'));
             }
 
             function removeCriterion(e) {
                 e.preventDefault();
-                $(e.currentTarget).parent().remove();
+                $(e.currentTarget).closest('.criterion').parent().remove();
             }
 
             processFilter($('form .filter'));
