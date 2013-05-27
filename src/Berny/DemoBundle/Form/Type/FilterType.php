@@ -42,6 +42,9 @@ class FilterType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $resolver->setRequired(array(
+            'filtered',
+        ));
         $resolver->setDefaults(array(
             'type' => new CriterionType(),
             'allow_add' => true,
