@@ -447,13 +447,15 @@ form ul {
 }
 
 .filter {
-
+    padding: 1em;
 }
 .criterion, .criterion li {
     display: inline-block;
 }
-.criterion li {
-    margin-left: 1em;
+.criterion {
+}
+.criterion li + li {
+    margin-left: .5em;
 }
 .criterion_field {
 
@@ -465,10 +467,20 @@ form ul {
 
 }
 .add_criterion {
-
+    line-height: 25px;
+}
+.remove_criterion, .add_criterion:before {
+    background: url("/bundles/bernydemo/images/add.png");
+    display: inline-block;
+    content: " ";
+    height: 16px;
+    margin: 0 8px 0 0;
+    vertical-align: middle;
+    width: 16px;
 }
 .remove_criterion {
-
+    text-indent: -99em;
+    background: url("/bundles/bernydemo/images/delete.png");
 }
 .user-list th {
     width: 25%;
