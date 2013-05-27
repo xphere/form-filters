@@ -16,9 +16,20 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $userForm = $this->createFormBuilder()
+            ->add('id', 'integer')
+            ->add('username', 'text')
+            ->add('birthdate', 'birthday')
+            ->add('active', 'checkbox')
+            ->add('money', 'integer')
+            ->getForm()
+        ;
+
         $filter = $this->createFormBuilder(array())
             ->setMethod('GET')
-            ->add('filters', new FilterType())
+            ->add('filters', new FilterType(), array(
+                'filtered' => $userForm,
+            ))
             ->add('submit', 'submit')
             ->getForm()
             ->handleRequest($request)
