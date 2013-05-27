@@ -36,7 +36,7 @@
     <script>
         jQuery(function($) {
             function processCriteria(criteria) {
-                criteria.append('<a href="#" class="remove_criterion">Remove filter</a>');
+                criteria.prepend('<a href="#" class="remove_criterion">Remove filter</a>');
             }
 
             function processFilter(filter) {
